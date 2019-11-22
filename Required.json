@@ -1,0 +1,13 @@
+{
+  "name": "Combat Rotations",
+  "authors": "Community",
+  "scripts": [
+    {
+      "name": "Mage",
+      "description": "Mage Rotation By Neer",
+      "game": "classic",
+      "type": "routine",
+      "main": "Mage/main.lua"
+    }
+  ]
+}
