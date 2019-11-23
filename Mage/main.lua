@@ -23,11 +23,9 @@ local Spells =
 function Tick(event, player)
 	local target = player:GetTarget()
 	
-	--[[
 	if not AbleTo(player) then 
 		return
 	end
-	--]]
 
 	DoPreCombat(player)
 
