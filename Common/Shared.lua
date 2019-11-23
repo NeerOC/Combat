@@ -1,6 +1,8 @@
 local wandTime
+local pause = false
 
-function Healing:getLowest(player)
+-- Healing functions, return the party member with lowest health.
+function getLowestPartyMember(player)
 	local friendlies = player:GetNearbyFriendlyPlayers(40)
     local lowest
 
@@ -24,7 +26,8 @@ function Healing:getLowest(player)
     return lowest
 end
 
-function Healing:getLowCount(player, threshold)
+-- Healing function, get the amount of players in party under the threshold.
+function getLowPartyCount(player, threshold)
 	local friendly = player:GetNearbyFriendlyPlayers(30)
     local lowcount = 0
     local selfcounted = false
@@ -72,7 +75,7 @@ function ShouldAttackSpecial(player, target)
 end
 
 function AbleTo(player)
-	return not IsDead(player) and not player:IsMounted()
+	return not IsDead(player) and not player:IsMounted() and not pause
 end
 
 -- Sort table function
@@ -194,3 +197,13 @@ end
 function IsDead(player)
 	return hasBuff(player, 8326)
 end
+
+function KeyPress(event, key, modifiers)
+    pressedShift = (modifiers & 1) > 0
+
+	if pressedShift and not pause then
+		pause = true
+	end
+end
+
+RegisterEvent(4, KeyPress)

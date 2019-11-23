@@ -56,6 +56,8 @@ function DoPreCombat(player)
 		Spells.ArcaneIntellect:Cast(player)
 		return
 	end
+
+	local Lowest = Healing:getLowest(player)
 end
 
 function DoCombat(player, target)
