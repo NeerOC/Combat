@@ -38,12 +38,12 @@ end
 
 
 function DoCombat(player, target)
-	if player:HasAura(Auras.Stealth) then
+	if hasBuff(player, Auras.Stealth) then
 		return
 	end
 	
-	local snd = player:HasAura(Auras.SliceAndDice)
-	--local sndAura = player:GetAuraByPlayer(AURA_SLICE_AND_DICE) --TODO REVISIT ME FOR TIMING THE AURA when ther's not much left
+	-- sndLeft holds the timeleft of the buff.
+	local snd, sndLeft = hasBuff(player, Auras.SliceAndDice)
 
 	if not snd and player:GetComboPoints() > 1 and Spells.SliceAndDice:CanCast() then
 		Spells.SliceAndDice:Cast(target)

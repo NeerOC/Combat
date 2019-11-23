@@ -89,6 +89,16 @@ function shouldBuff(player, AuraList)
 	return true
 end
 
+function hasBuff(player, AuraID)
+	local theBuff = player:GetAura(AuraID)
+	if theBuff then
+		local timeLeft = theBuff:GetTimeleft()
+		return true, timeLeft
+	end
+
+	return false
+end
+
 function Wand(player, target)
 	local Wand = Spell(5019)
 
