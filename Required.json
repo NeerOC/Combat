@@ -7,7 +7,16 @@
       "description": "Mage Rotation By Neer",
       "game": "classic",
       "type": "routine",
+	  "classes": "Mage",
       "main": "Mage/main.lua"
+    },
+	{
+      "name": "Rogue",
+      "description": "Rogue Rotation",
+      "game": "classic",
+      "type": "routine",
+	  "classes": "Rogue",
+      "main": "Rogue/main.lua"
     }
   ]
 }
