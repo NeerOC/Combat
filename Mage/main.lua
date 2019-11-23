@@ -18,12 +18,6 @@ local Spells =
 	IceArmor = getBestSpell(SpellID.IceArmor)
 }
 
-local Auras = 
-{
-	FrostArmor = getHighestAura(SpellID.FrostArmor),
-	IceArmor = getHighestAura(SpellID.IceArmor)
-}
-
 function Tick(event, player)
 	local target = player:GetTarget()
 	DoPreCombat(player)
