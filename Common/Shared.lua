@@ -53,11 +53,35 @@ function spairs(t, order)
     end
 end
 
-function getHighestSkill(arr)
+function getBestSpell(arr)
 	for i = 1, #arr do
 		local fauxSpell = Spell(arr[i])
 		if fauxSpell:IsKnown() then
 			return fauxSpell
 		end
 	end
+end
+
+function getHighestAura(arr)
+	for i = 1, #arr do
+		local fauxSpell = Spell(arr[i])
+		if fauxSpell:IsKnown() then
+			return arr[i]
+		end
+	end
+end
+
+function shouldBuff(player, AuraList)
+	local myBest = getHighestAura(AuraList)
+
+	if myBest then
+		for i = 1, #AuraList do
+			local Aura = player:GetAura(AuraList[i])
+			if Aura and (Aura:GetSpellID() > myBest or Aura:GetSpellID() == myBest) then
+				return false
+			end
+		end
+	end
+
+	return true
 end
