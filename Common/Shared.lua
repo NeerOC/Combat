@@ -31,6 +31,10 @@ function ShouldAttackSpecial(player, target)
 	return true
 end
 
+function AbleTo(player)
+	return not IsDead() and not player:IsMounted()
+end
+
 -- Sort table function
 function spairs(t, order)
     -- collect the keys
@@ -109,4 +113,8 @@ function Wand(player, target)
 			return
 		end
 	end
+end
+
+function IsDead(player)
+	return hasBuff(player, 8326)
 end
