@@ -6,7 +6,8 @@ local SpellID =
 	Frostbolt = {25304, 10181, 10180, 10179, 8408, 8407, 8406, 7322, 837, 205, 116},
 	FireBlast = {10199, 10197, 8413, 8412, 2138, 2137, 2136},
 	FrostArmor = {7301, 7300, 168},
-	IceArmor = {10220, 10219, 7320, 7302}
+	IceArmor = {10220, 10219, 7320, 7302},
+	ArcaneIntellect = {10157, 10156, 1461, 1460, 1459}
 }
 
 -- Gets the highest rank known in the array above, gotta sort the ranks ourselves, start with highest.
@@ -15,7 +16,8 @@ local Spells =
 	Frostbolt = getBestSpell(SpellID.Frostbolt),
 	FireBlast = getBestSpell(SpellID.FireBlast),
 	FrostArmor = getBestSpell(SpellID.FrostArmor),
-	IceArmor = getBestSpell(SpellID.IceArmor)
+	IceArmor = getBestSpell(SpellID.IceArmor),
+	ArcaneIntellect = getBestSpell(SpellID.ArcaneIntellect)
 }
 
 function Tick(event, player)
@@ -36,6 +38,11 @@ function DoPreCombat(player)
 			Spells.FrostArmor:Cast(player)
 			return
 		end
+	end
+
+	if Spells.ArcaneIntellect:CanCast(player) and shouldBuff(player, SpellID.ArcaneIntellect) then
+		Spells.ArcaneIntellect:Cast(player)
+		return
 	end
 end
 
