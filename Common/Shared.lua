@@ -68,18 +68,19 @@ function getHighestAura(arr)
 	for i = 1, #arr do
 		local fauxSpell = Spell(arr[i])
 		if fauxSpell:IsKnown() then
-			return arr[i]
+			-- We return the ID and then the position in the array.
+			return arr[i], i
 		end
 	end
 end
 
 function shouldBuff(player, AuraList)
-	local myBest = getHighestAura(AuraList)
+	local myBest, arrPos = getHighestAura(AuraList)
 
 	if myBest then
 		for i = 1, #AuraList do
 			local Aura = player:GetAura(AuraList[i])
-			if Aura and (Aura:GetSpellID() > myBest or Aura:GetSpellID() == myBest) then
+			if Aura and (i < arrPos or Aura:GetSpellID() == myBest) then
 				return false
 			end
 		end
