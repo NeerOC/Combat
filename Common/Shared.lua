@@ -59,6 +59,42 @@ function spairs(t, order)
     end
 end
 
+-- returns amount of debuffs around you (Good for sheep where you can only sheep one)
+function getDebuffCount(player, debuff)
+	local Units = player:GetNearbyEnemyUnits(50)
+	local count = 0
+
+	for i = 1, #Units do
+		if Units[i]:HasAuraByPlayer(debuff) then
+			count = count + 1
+		end
+	end
+
+	return count
+end
+
+-- Gets nearby enemies that are facing and targetting us.
+function getNearbyEnemies(player, yrd)
+	local Enemies = player:GetNearbyEnemyUnits(yrd)
+	local EnemyTable = {}
+	local myPet = player:GetPet()
+	local pGUID = player:GetGUID():GetLoWord()
+	if myPet then local petGUID = myPet:GetGUID():GetLoWord() end
+
+	for i = 1, #Enemies do
+		if Enemies[i]:GetTarget() then	
+			local enemyTarget = Enemies[i]:GetTarget():GetGUID():GetLoWord()
+			local currentEnemy = Enemies[i]
+			
+			if currentEnemy:InCombat() and (enemyTarget == pGUID and currentEnemy:IsFacing(player) or myPet and enemyTarget == petGUID and currentEnemy:IsFacing(myPet)) then
+				table.insert(EnemyTable, currentEnemy)
+			end
+		end
+	end
+
+	return EnemyTable
+end
+
 function getBestSpell(arr)
 	for i = 1, #arr do
 		local fauxSpell = Spell(arr[i])

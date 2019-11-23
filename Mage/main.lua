@@ -7,7 +7,8 @@ local SpellID =
 	FireBlast = {10199, 10197, 8413, 8412, 2138, 2137, 2136},
 	FrostArmor = {7301, 7300, 168},
 	IceArmor = {10220, 10219, 7320, 7302},
-	ArcaneIntellect = {10157, 10156, 1461, 1460, 1459}
+	ArcaneIntellect = {10157, 10156, 1461, 1460, 1459},
+	Polymorph = {28271, 28272, 12826, 12825, 12824, 118}
 }
 
 -- Gets the highest rank known in the array above, gotta sort the ranks ourselves, start with highest.
@@ -17,7 +18,13 @@ local Spells =
 	FireBlast = getBestSpell(SpellID.FireBlast),
 	FrostArmor = getBestSpell(SpellID.FrostArmor),
 	IceArmor = getBestSpell(SpellID.IceArmor),
-	ArcaneIntellect = getBestSpell(SpellID.ArcaneIntellect)
+	ArcaneIntellect = getBestSpell(SpellID.ArcaneIntellect),
+	Polymorph = getBestSpell(SpellID.Polymorph)
+}
+
+local Auras = 
+{
+	Polymorph = getHighestAura(SpellID.Polymorph)
 }
 
 function Tick(event, player)
@@ -54,7 +61,8 @@ end
 function DoCombat(player, target)
 	local currentMana = player:GetManaPercent()
 	local currentHP = player:GetHealthPercent()
-
+	local Enemies = getNearbyEnemies(player, 30)
+	
 	-- Wand is global :) Let's Wand em below 15% mana.
 	if currentMana < 15 then
 		Wand(player, target)
