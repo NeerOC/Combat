@@ -47,6 +47,15 @@ function DoPreCombat(player)
 end
 
 function DoCombat(player, target)
+	local currentMana = player:GetManaPercent()
+	local currentHP = player:GetHealthPercent()
+
+	-- Wand is global :) Let's Wand em below 15% mana.
+	if currentMana < 15 then
+		Wand(player, target)
+		return
+	end
+
 	if Spells.FireBlast:CanCast(target) then
 		Spells.FireBlast:Cast(target)
 		return

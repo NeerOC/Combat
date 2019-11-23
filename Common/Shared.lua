@@ -1,3 +1,5 @@
+local wandTime
+
 function ShouldAttack(player, target)
 	if player:IsMounted() or
 		not target or
@@ -84,4 +86,16 @@ function shouldBuff(player, AuraList)
 	end
 
 	return true
+end
+
+function Wand(player, target)
+	local Wand = Spell(5019)
+
+	if not player:IsCasting() and (not wandTime or GetCurTimeMs() - wandTime > 750) then
+		if Wand:CanCast(target) and Wand:IsReady() then
+			wandTime = GetCurTimeMs()
+			Wand:Cast(target)
+			return
+		end
+	end
 end
