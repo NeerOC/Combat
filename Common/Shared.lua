@@ -1,5 +1,45 @@
 local wandTime
 
+function Healing:getLowest(player)
+	local friendlies = player:GetNearbyFriendlyPlayers(40)
+    local lowest
+
+    for i = 1, #friendlies do
+        if not friendlies[i]:IsDead() then
+            if (friendlies[i]:InParty() or friendlies[i]:InRaid()) and not lowest then
+                lowest = friendlies[i]
+            end
+
+            if lowest and (friendlies[i]:InParty() or friendlies[i]:InRaid()) and
+                friendlies[i]:GetHealthPercent() < lowest:GetHealthPercent() then
+                lowest = friendlies[i]
+            end
+        end
+    end
+
+    if lowest and player:GetHealthPercent() < lowest:GetHealthPercent() then
+        lowest = player
+    end
+
+    return lowest
+end
+
+function Healing:getLowCount(player, threshold)
+	local friendly = player:GetNearbyFriendlyPlayers(30)
+    local lowcount = 0
+    local selfcounted = false
+
+    if player:GetHealthPercent() < threshold then lowcount = lowcount + 1 end
+
+    for i = 1, #friendly do
+        if (friendly[i]:InParty() or friendly[i]:InRaid()) and
+            friendly[i]:GetHealthPercent() < threshold then
+            lowcount = lowcount + 1
+        end
+    end
+    return lowcount
+end
+
 function ShouldAttack(player, target)
 	if player:IsMounted() or
 		not target or
