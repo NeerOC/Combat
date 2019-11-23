@@ -7,7 +7,7 @@
       "description": "Mage Rotation",
       "game": "classic",
       "type": "routine",
-	  "classes": "Mage",
+	    "classes": "Mage",
       "main": "Mage/main.lua"
     },
 	{
@@ -15,7 +15,7 @@
       "description": "Rogue Rotation",
       "game": "classic",
       "type": "routine",
-	  "classes": "Rogue",
+	    "classes": "Rogue",
       "main": "Rogue/main.lua"
     },
 	{
@@ -23,7 +23,7 @@
       "description": "Warrior Rotation",
       "game": "classic",
       "type": "routine",
-	  "classes": "Warrior",
+	    "classes": "Warrior",
       "main": "Warrior/main.lua"
     },
 	{
@@ -31,7 +31,7 @@
       "description": "Paladin Rotation",
       "game": "classic",
       "type": "routine",
-	  "classes": "Paladin",
+	    "classes": "Paladin",
       "main": "Paladin/main.lua"
     },
 	{
@@ -39,7 +39,7 @@
       "description": "Warlock Rotation",
       "game": "classic",
       "type": "routine",
-	  "classes": "Warlock",
+	    "classes": "Warlock",
       "main": "Warlock/main.lua"
     },
 	{
@@ -47,7 +47,7 @@
       "description": "Shaman Rotation",
       "game": "classic",
       "type": "routine",
-	  "classes": "Shaman",
+	    "classes": "Shaman",
       "main": "Shaman/main.lua"
     },
 	{
@@ -55,7 +55,7 @@
       "description": "Hunter Rotation",
       "game": "classic",
       "type": "routine",
-	  "classes": "Hunter",
+	    "classes": "Hunter",
       "main": "Hunter/main.lua"
     },
 	{
@@ -63,7 +63,7 @@
       "description": "Druid Rotation",
       "game": "classic",
       "type": "routine",
-	  "classes": "Druid",
+	    "classes": "Druid",
       "main": "Druid/main.lua"
     },
 	{
@@ -71,8 +71,8 @@
       "description": "Priest Rotation",
       "game": "classic",
       "type": "routine",
-	  "classes": "Priest",
+	    "classes": "Priest",
       "main": "Priest/main.lua"
-    },
+    }
   ]
 }
