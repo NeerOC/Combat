@@ -4,7 +4,7 @@
   "scripts": [
     {
       "name": "Mage",
-      "description": "Mage Rotation By Neer",
+      "description": "Mage Rotation",
       "game": "classic",
       "type": "routine",
 	  "classes": "Mage",
@@ -17,6 +17,62 @@
       "type": "routine",
 	  "classes": "Rogue",
       "main": "Rogue/main.lua"
-    }
+    },
+	{
+      "name": "Warrior",
+      "description": "Warrior Rotation",
+      "game": "classic",
+      "type": "routine",
+	  "classes": "Warrior",
+      "main": "Warrior/main.lua"
+    },
+	{
+      "name": "Paladin",
+      "description": "Paladin Rotation",
+      "game": "classic",
+      "type": "routine",
+	  "classes": "Paladin",
+      "main": "Paladin/main.lua"
+    },
+	{
+      "name": "Warlock",
+      "description": "Warlock Rotation",
+      "game": "classic",
+      "type": "routine",
+	  "classes": "Warlock",
+      "main": "Warlock/main.lua"
+    },
+	{
+      "name": "Shaman",
+      "description": "Shaman Rotation",
+      "game": "classic",
+      "type": "routine",
+	  "classes": "Shaman",
+      "main": "Shaman/main.lua"
+    },
+	{
+      "name": "Hunter",
+      "description": "Hunter Rotation",
+      "game": "classic",
+      "type": "routine",
+	  "classes": "Hunter",
+      "main": "Hunter/main.lua"
+    },
+	{
+      "name": "Druid",
+      "description": "Druid Rotation",
+      "game": "classic",
+      "type": "routine",
+	  "classes": "Druid",
+      "main": "Druid/main.lua"
+    },
+	{
+      "name": "Priest",
+      "description": "Priest Rotation",
+      "game": "classic",
+      "type": "routine",
+	  "classes": "Priest",
+      "main": "Priest/main.lua"
+    },
   ]
 }
