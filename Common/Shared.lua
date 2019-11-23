@@ -32,7 +32,7 @@ function ShouldAttackSpecial(player, target)
 end
 
 function AbleTo(player)
-	return not IsDead() and not player:IsMounted()
+	return not IsDead(player) and not player:IsMounted()
 end
 
 -- Sort table function
