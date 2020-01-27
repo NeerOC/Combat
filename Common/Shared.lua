@@ -22,6 +22,10 @@ function getLowestPartyMember(player)
     if lowest and player:GetHealthPercent() < lowest:GetHealthPercent() then
         lowest = player
     end
+	
+	if lowest == nil then
+		lowest = player
+	end
 
     return lowest
 end
